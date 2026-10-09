@@ -17,6 +17,7 @@ class TestTreasureHunt(unittest.TestCase):
             "energy": 32,
             "max_energy": 32,
             "moves": 13,
+            "move_count": 0,
             "hints": 4,
             "score": 100,
             "distance": 0,
@@ -107,7 +108,7 @@ class TestTreasureHunt(unittest.TestCase):
     def test_TC12_route_event(self):
         g = self.new_game()
 
-        with patch("random.random", return_value=0.1):
+        with patch("random.random"):
             game.change_routes(g)
 
         self.assertTrue(len(g["closed"]) > 0)
